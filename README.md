@@ -17,28 +17,15 @@ The task is that we need to train one model to help removing the background colo
 
 But the label of this project is to find the contour of car so that we need different CNN network. After a bit research, I find that U-Net CNN network is fit for this task and U-Net is specially used in biomedical images segmentation.
 
-U-Net is not can do the classification job and it also can do the localization job. U-Net is a full convolutional network. It uses contracting network which contains multiple layers to extract the feature maps and increase the image depth.  In the up-sampling part, the high resolution feature from contracting network will be combined to the features. Hence the network is able to propagate the image context information successive layers. 
+U-Net is not only can do the classification job but it also can do the localization job. U-Net is a full convolutional network. It uses contracting network which contains multiple layers to extract the feature maps and increase the image depth.  In the up-sampling part, the high resolution feature from contracting network will be combined to the features. Hence the network is able to propagate the image context information successive layers. 
 
 
 Model Architecture Description
 ---
 
-The are several architecture we can choose for this segmentation task. For example, U-Net, DeepLab, SegNet and ResNet etc. In this repo, I choosed U-Net as it requires fewer training images and also the training speed is also fast.
+The are several architecture we can choose for this segmentation task. For example, U-Net, DeepLab, SegNet and ResNet etc. In this repo, I choosed U-Net as it requires fewer training images and also the training speed is also fast. The details of U-Net can be found here: https://arxiv.org/pdf/1505.04597.pdf  
 
-The details of U-Net can be found here: 
-
-https://arxiv.org/pdf/1505.04597.pdf  
-
-
-There are several architecture we can choose to traing this model. E.g LeNET, Nvidia self driving car CNN, VGG etc. As Nvidia CNN architecture is specially designed for self driving car and can be used for real time image input and predication in real world self driving, so it should be our first choice.
-
-In principle, we can just copy exactly the Nvidia CNN network, which can be found here: https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/
-
-
-Due to the GPU memory limitation, I have resized the image to 128*128 so that the input of image size will be 128*128*3.
-
-Here is the model summary I used in this project. In the high level, it includes one 'down' and 'up' network. Inside the 'down' layer, it incldues the Conv2D, Activation, Max Pooling and batch normalization. In the 'up' layer, it includes the UpSampling2D, Concatenate the relative 'down' layer, Conv2D, Activation, and batch normalization etc.
-
+Due to the GPU memory limitation, I have resized the image to 128*128 so that the input of image size will be 128*128*3. Here is the model summary I used in this project. In the high level, it includes one 'down' and 'up' network. Inside the 'down' layer, it includes the Conv2D, Activation, Max Pooling and batch normalization. In the 'up' layer, it includes the UpSampling2D, Concatenate the relative 'down' layer, Conv2D, Activation, and batch normalization etc.
 
 Layer (type)                    Output Shape         Param #     Connected to                     
 ==================================================================================================
@@ -205,10 +192,14 @@ ________________________________________________________________________________
 activation_22 (Activation)      (None, 128, 128, 64) 0           batch_normalization_22[0][0]     
 __________________________________________________________________________________________________
 conv2d_23 (Conv2D)              (None, 128, 128, 1)  65          activation_22[0][0]              
-==================================================================================================
+
+
 Total params: 34,540,737
+
 Trainable params: 34,527,041
+
 Non-trainable params: 13,696
+
 
 Training data preparation
 ---
