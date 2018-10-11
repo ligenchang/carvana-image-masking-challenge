@@ -27,6 +27,7 @@ The are several architecture we can choose for this segmentation task. For examp
 
 Due to the GPU memory limitation, I have resized the image to 128*128 so that the input of image size will be 128*128*3. Here is the model summary I used in this project. In the high level, it includes one 'down' and 'up' network. Inside the 'down' layer, it includes the Conv2D, Activation, Max Pooling and batch normalization. In the 'up' layer, it includes the UpSampling2D, Concatenate the relative 'down' layer, Conv2D, Activation, and batch normalization etc.
 
+__________________________________________________________________________________________________
 Layer (type)                    Output Shape         Param #     Connected to                     
 ==================================================================================================
 input_1 (InputLayer)            (None, 128, 128, 3)  0                                            
@@ -192,7 +193,7 @@ ________________________________________________________________________________
 activation_22 (Activation)      (None, 128, 128, 64) 0           batch_normalization_22[0][0]     
 __________________________________________________________________________________________________
 conv2d_23 (Conv2D)              (None, 128, 128, 1)  65          activation_22[0][0]              
-
+__________________________________________________________________________________________________
 
 Total params: 34,540,737
 
