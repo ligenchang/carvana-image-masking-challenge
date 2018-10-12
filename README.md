@@ -6,6 +6,7 @@
 [image1]: ./image/data.png "Data"
 [image2]: ./image/data_aug.png "Data Aug"
 [image3]: ./image/test_accuracy.png "Test Accuracy"
+[image4]: ./image/middle.png "Middle"
 
 Overview
 ---
@@ -246,6 +247,15 @@ Based on the training model, I predicated the test image and could find that the
 
  
 ![test accuracy][image3]
+
+
+Middle Layers Visualization
+---
+
+It will be straightforward to see what's the middle layers' output in this U-Net Model, it will help us to understand the architecture and also provide us the debug capability of tracing back the test accuracy to training data. I have provided the code in last section to view each layers' filter maps.
+
+ 
+![middle][image4]
 
 
 Summary
