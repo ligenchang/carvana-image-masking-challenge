@@ -258,6 +258,14 @@ It will be straightforward to see what's the middle layers' output in this U-Net
 ![middle][image4]
 
 
+Potential Improvements
+---
+
+* Add deformation to training example for advanced data augmentation
+* Change Car colour to enhance data augmentation
+* Add dropout layer to U-Net 'Down' and 'Up' layer to avoid over-fitting
+
+
 Summary
 ---
 
